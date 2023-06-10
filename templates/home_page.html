@@ -1,0 +1,166 @@
+{% extends "starter.html" %}
+{% block title %}{{title|title}}{% endblock %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container overflow-hidden text-center" style="visibility:hidden;">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    </div>
+</div>
+{% if messages %}
+
+{% for message in messages %}
+
+
+{% if message.tags == 'success' %}
+
+<script src="{% static 'js/jquery.js' %}"></script>  
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<p class="msg"  style="visibility:hidden;">{{message}}</p>
+<script>
+ $(document).ready(function(){
+ $(".target").text($(".msg").text());
+  $("#updatemessage").modal('show');
+ });
+</script>
+
+{% endif %}
+
+
+    
+{% endfor %}
+
+{% endif %}
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="updatemessage" tabindex="-1" aria-labelledby="updatemessageLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark site" id="updatemessageLabel">Perfect!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="text-center text-success mt-3">
+        <i class="far fa-check-circle fa-6x" style="color: #a5dc86;"></i>
+        </div>
+        <br>
+        <div class="mb-3 text-dark carousel-p target articles"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" style="width:65px;" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row  justify-content-center mt-3 mb-3 ">
+    <div class="col-12">
+      <header  class="text-center pt-2 pb-2  rounded header change-market">
+        <h3 class="header" style="font-size: 40px;" title="Market place">Market place</h3>
+      
+      </header>
+    </div>
+  </div>
+  <div class="row custom-row  mt-3 mb-3 ">
+
+    <div class="col-8 custom-col">
+    <div class="card-collection">
+     {% for a in "yesyes" %}
+     
+     <div class="card m-2" style="width: 18rem; cursor: pointer;">
+      <img src="{% static 'images/flowers.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">more...</a>
+      </div>
+    </div>
+
+     {% endfor %}
+   
+     
+      
+     
+    </div>
+  </div>
+</div>
+<div class="row gy-5" style="visibility: hidden;">
+  <div class="col-6">
+    <div class="p-3">Custom column padding</div>
+  </div>
+  <div class="col-6">
+    <div class="p-3">Custom column padding</div>
+  </div>
+  
+  
+
+</div>
+
+<div class="row d-flex justify-content-center mt-3 mb-3 ">
+  <div class="col-12">
+    <header  class="text-center pt-2 pb-2 rounded header change-market">
+      <h3 class="header" style="font-size: 40px;" title="Blog">Blog</h3>
+    
+    </header>
+  </div>
+</div>
+</div>
+
+{% for a in blog_list %}
+{% include 'blog/list-inline.html' with blog_post=a truncate=True detail=False %}
+{% endfor %}
+
+ <div class="row gy-5" style="visibility: hidden;">
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+  
+  </div>
+  
+  <div class="container">
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {% if blog_list.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{blog_list.previous_page_number}}">Previous</a></li>
+    {% endif %}
+    
+    {% if blog_list.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{blog_list.next_page_number}}">Next</a></li>
+    <li class="page-item">
+      <a class="page-link" href="?page={{blog_list.paginator.num_pages}}">Last &raquo;</a>
+    </li>
+    {% endif %}
+  </ul>
+  
+  <small class="text-white p-3">
+    Page {{blog_list.number}} of {{blog_list.paginator.num_pages}}.
+  </small>
+</nav>
+</div>
+
+{% endblock %}
