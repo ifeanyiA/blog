@@ -157,13 +157,17 @@ LOGOUT_URL='logout'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles')
 ] 
+
 STATIC_ROOT =os.path.join(BASE_DIR,'static_cdn_test')
 MEDIA_ROOT=os.path.join(BASE_DIR,'mediafiles')
 
 #MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
 MEDIA_URL = '/media/' # django-storages
 
-
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 BOOTSTRAP5 = {
 
