@@ -25,7 +25,7 @@ SECRET_KEY = 'nb7m1a2l))8cejip#*bwcr5pnkailc@ruvj@6eo(^dhu77$4+%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['notyet.up.railway.app','192.168.43.1','127.0.0.1']
+ALLOWED_HOSTS = ['screecherweb.up.railway.app','192.168.43.1','127.0.0.1']
 
 
 # Application definition
@@ -223,7 +223,7 @@ BOOTSTRAP5 = {
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://notyet.up.railway.app',"http://127.0.0.1:8000"]
+CSRF_TRUSTED_ORIGINS = ['https://screecherweb.up.railway.app',"http://127.0.0.1:8000"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -231,6 +231,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
    
     "http://127.0.0.1:8000",
+    "https://screecherweb.up.railway.app",
 ]
 
 
