@@ -56,6 +56,7 @@ class BlogPost(models.Model):
 	updated=models.DateTimeField(auto_now_add=True)
 	likes = models.ManyToManyField(User,related_name="blog_post_like",blank=True)
 	
+	
 
 	objects=BlogPostManager()
 
@@ -82,8 +83,6 @@ class BlogPost(models.Model):
 	def get_like_users(self):
 		return f"/blog/{self.slug}/getUsers"
 
-	def get_like_users_color(self):
-		return f"/blog/{self.slug}/getLikeColor"
 
 	
 	def get_edit_url(self):

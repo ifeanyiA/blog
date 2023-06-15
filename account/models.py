@@ -17,6 +17,7 @@ class AccountUser(AbstractUser):
 	
 	
 	
+	
 	def clean_email(self):
 		email=self.email.casefold()
 		return email.islower()

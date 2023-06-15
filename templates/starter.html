@@ -266,26 +266,6 @@ footer li a{
 $(document).ready(function(){
 
 
-  function getLikeColors(){
-
-    var url_like_users = $("#like_display").attr("data-href-color");
-    console.log(url_like_users);
-
-    fetch(url_like_users,{
-      method:"GET",
-      headers:{"X-Requested-With": "XMLHttpRequest"}
-    })
-    .then(response=>response.json())
-    .then(data =>{
-
-      //$("#like_color").addClass(data);
-    
-
-    })
-
-
-  }
-
 
   function getLikeCountDB(){
     var url_  = $("#like_display").attr("data-href");
@@ -295,8 +275,14 @@ $(document).ready(function(){
     })
     .then(response=>response.json())
     .then(data =>{
-      console.log(data);
+      
       $("#like_display").text(parseInt(data));
+      
+
+      
+  
+      
+
     })
 
    
@@ -321,7 +307,17 @@ headers:{
 })
 .then(response => response.json())
 .then(data=>{
-  
+
+  if(data.liked){
+    $("#like_button").toggleClass("inverted")
+  }
+  else{
+    $("#like_button").toggleClass("inverted")
+  }
+
+
+
+  //var color = $(".inverted").hasClass("inverted")
   getLikeCountDB();
   //getLikeColors();
   //getLikeUsers();

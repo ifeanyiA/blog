@@ -218,6 +218,7 @@ def delete_comment(request,slug,comment_id):
 	
 	
 @login_required
+
 def profile(request):
 		now=timezone.now()
 		template="blog/profile.html"
@@ -284,18 +285,23 @@ class PostLikeToggle(APIView):
 		if user.is_authenticated:
 			if user in obj.likes.all():
 				obj.likes.remove(user)
-				user_obj.like_color = "ui red"
-				user_obj.save()
+				 
+				
+				
+				
+				
 				NotLiked = True
 			else:
 				obj.likes.add(user)
-				user_obj.like_color = "ui blue"
-				user_obj.save()
+				
+				
+				
 				liked = True
 		
 		data ={
 			"liked":liked,
 			"NotLiked":NotLiked,
+			
 		}
 		return Response(data)
 
@@ -311,18 +317,7 @@ class PostLikeDB(APIView):
 		
 		return Response(data)
 
-class PostLikeColor(APIView):
-	authentication_classes = [authentication.SessionAuthentication]
-	permission_classes = [permissions.IsAuthenticated]
 
-	def get(self,request,slug=None,format=None):
-		obj = get_object_or_404(AccountUser,email=request.user)
-		#url_ = obj.get_absolute_url()
-		user = self.request.user
-		data = obj.like_color
-		print(data)
-		
-		return Response(data)
 
 
 

@@ -116,12 +116,21 @@
 </div>
 
 <div class="ui labeled button" tabindex="0">
-<form method="post">
-  <div class="{{request.user.like_color}} button" id="like_button" data-href="{{blog_post.get_api_like_url}}">
-    <i class="heart icon" id="like_color"></i> like
-  </div>
-  </form>
-  <a class="{{request.user.like_color}} basic left pointing label" data-bs-toggle="modal" data-bs-target="#staticLikes"  id="like_display" data-href="{{blog_post.get_like_count}}" data-href-color="{{blog_post.get_like_users_color}}">
+
+ {% if request.user.is_authenticated and request.user in blog_post.likes.all %}
+ <div class="ui red button" id="like_button" data-href="{{blog_post.get_api_like_url}}" title="Like">
+  <i class="heart icon" id="like_color"></i> like
+</div>
+{% else %}
+<div class="ui red inverted button" id="like_button" data-href="{{blog_post.get_api_like_url}}" title="Like">
+  <i class="heart icon" id="like_color"></i> like
+</div>
+
+{% endif %}
+
+
+ 
+  <a class="ui red basic left pointing label" data-bs-toggle="modal" data-bs-target="#staticLikes"  id="like_display" data-href="{{blog_post.get_like_count}}" data-href-color="{{blog_post.get_like_users_color}}">
   {{blog_post.likes.count}}
   </a>
 </div>
@@ -138,10 +147,10 @@
 </div>
 
 <div class="ui labeled button" tabindex="0" data-bs-toggle="modal"  data-bs-target="#authenticateModal">
-  <div class="ui red button">
+  <div class="ui red inverted button">
     <i class="heart icon"></i> like
   </div>
-  <a class="ui basic red left pointing label" data-bs-toggle="modal" data-bs-target="#staticLikes">
+  <a class="ui basic red left pointing label" data-bs-toggle="modal" data-bs-target="#staticLikes" title="Like">
     {{blog_post.likes.count}}
   </a>
 </div>
