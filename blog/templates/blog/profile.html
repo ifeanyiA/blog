@@ -89,43 +89,20 @@ Dashboard | Profile
     </div>
 </div>
 
-  <div class="col-12 col-md-10 mx-auto">
-  
-<p class="text-white">Name: {{full_name|title}} <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNzkyIDE3OTIiIHhtbG5z
-	  PSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iIzcwYmYyYiIgZD0i
-	  TTE0MTIgNzM0cTAtMjgtMTgtNDZsLTkxLTkwcS0xOS0xOS00NS0xOXQtNDUgMTlsLTQwOCA0MDct
-	  MjI2LTIyNnEtMTktMTktNDUtMTl0LTQ1IDE5bC05MSA5MHEtMTggMTgtMTggNDYgMCAyNyAxOCA0
-	  NWwzNjIgMzYycTE5IDE5IDQ1IDE5IDI3IDAgNDYtMTlsNTQzLTU0M3ExOC0xOCAxOC00NXptMjUy
-	  IDE2MnEwIDIwOS0xMDMgMzg1LjV0LTI3OS41IDI3OS41LTM4NS41IDEwMy0zODUuNS0xMDMtMjc5
-	  LjUtMjc5LjUtMTAzLTM4NS41IDEwMy0zODUuNSAyNzkuNS0yNzkuNSAzODUuNS0xMDMgMzg1LjUg
-	  MTAzIDI3OS41IDI3OS41IDEwMyAzODUuNXoiLz4KPC9zdmc+Cg== " alt="My image" style="height:3vh;">  </p>
-	  
-	  </div>
-  <div class="col-12 col-md-10 mx-auto">
-  
-<p class="text-white">Status:{% if request.user.is_superuser  %} Admin {% elif request.user.is_staff %} Staff {% else %} User {% endif %} <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNzkyIDE3OTIiIHhtbG5z
-	  PSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iIzcwYmYyYiIgZD0i
-	  TTE0MTIgNzM0cTAtMjgtMTgtNDZsLTkxLTkwcS0xOS0xOS00NS0xOXQtNDUgMTlsLTQwOCA0MDct
-	  MjI2LTIyNnEtMTktMTktNDUtMTl0LTQ1IDE5bC05MSA5MHEtMTggMTgtMTggNDYgMCAyNyAxOCA0
-	  NWwzNjIgMzYycTE5IDE5IDQ1IDE5IDI3IDAgNDYtMTlsNTQzLTU0M3ExOC0xOCAxOC00NXptMjUy
-	  IDE2MnEwIDIwOS0xMDMgMzg1LjV0LTI3OS41IDI3OS41LTM4NS41IDEwMy0zODUuNS0xMDMtMjc5
-	  LjUtMjc5LjUtMTAzLTM4NS41IDEwMy0zODUuNSAyNzkuNS0yNzkuNSAzODUuNS0xMDMgMzg1LjUg
-	  MTAzIDI3OS41IDI3OS41IDEwMyAzODUuNXoiLz4KPC9zdmc+Cg== " alt="My image" style="height:3vh;">  </p>
-	  
-	  </div>
-	 
-       
-   
 
-   
+  <a class="ui blue image label m-1">
+    <img src="https://semantic-ui.com/images/avatar/small/jenny.jpg">
+    {{full_name|title}} 
+    <div class="detail">{% if request.user.is_superuser  %} Admin {% elif request.user.is_staff %} Staff {% else %} User {% endif %}</div>
+    
+  </a>
 
 
 
-       
-	  
-	  </div>
 
-    <div class="row">
+
+
+    <div class="row p-2 m-2">
 
 {% if request.user.is_authenticated %}
 <p class="text-white">user is is_authenticated</p>
