@@ -1,0 +1,126 @@
+{% extends "starter.html" %}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block title %}
+{{title|title}}
+{% endblock %}
+{% block background %}
+body{
+    background: #ffffff !important;
+}
+
+@media screen and (max-width:480px) {
+  .fa-solid{
+    margin-bottom:1em;
+  }
+  
+}
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="container overflow-hidden text-center" style="visibility:hidden;">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+  
+    </div>
+</div>
+<section>
+ 
+<div class="container">
+  <a href="{% url 'detail' obj.slug %}"><i class="fa-solid fa-arrow-left-long fa-2x text-dark"></i></a>
+<div class="row">
+
+  <div class="col-md d-flex justify-content-center">
+    
+<div class="ui segment black raised">
+  <div class="ui segment padded purple">
+    <h5 class="my-titles">{{title | title}}</h5>
+  </div>
+  
+
+        
+<form method="post" action="." enctype="multipart/form-data" class="ui form">
+    {% csrf_token %}
+    
+    <div class="field articles">
+      
+      {{form}}
+    </div>
+    <!--
+    
+    {{ form.non_field_errors }}
+
+    <div class="form-group ">
+  
+      {{form.image.label_tag}}
+      {{form.image}}
+        <p class="text-muted">{{form.image.errors}}</p>
+      </div>
+      <div class="form-group ">
+  
+      {{form.title.label_tag}}
+      {{form.title}}
+        <p class="text-muted">{{form.title.errors}}</p>
+      </div>
+      
+      <div class="form-group ">
+  
+      {{form.slug.label_tag}}
+      {{form.slug}}
+        <p class="text-muted">{{form.slug.errors}}</p>
+      </div>
+      
+    <div class="form-group ">
+  
+      {{form.content.label_tag}}
+      {{form.content}}
+        <p class="text-muted">{{form.content.errors}}</p>
+      </div>
+    <div class="form-group ">
+  
+   
+     <img src="{% static "node_modules/bootstrap/icons/arrow-return-left.svg" %}" alt="My image">  
+       {{form.publish_date.label_tag}}
+     {{form.publish_date}}
+      
+     
+        <p class="text-muted">
+        {{form.publish_date.errors}}</p>
+      </div>
+
+ -->
+
+  <div class="ui segment">
+    <button type="submit" class="ui button inverted purple" style="display:block; width: 100%;">Update</button>
+  </div>
+  
+ 
+    </form>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="container overflow-hidden text-center" style="visibility:hidden;">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    </div>
+</div>
+</section>
+{% endblock %}
+
+
+
+  

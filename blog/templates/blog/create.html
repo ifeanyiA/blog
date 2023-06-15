@@ -1,0 +1,100 @@
+{% extends "starter.html" %}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block title %}
+{{title|title}}
+{% endblock %}
+{% block background %}
+body{
+    background: #ffffff !important;
+}
+{% endblock %}
+
+{% block content %}
+<div class="container overflow-hidden text-center" style="visibility:hidden;">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    </div>
+</div>
+<section>
+    
+<div class="container">
+<a href="{% url 'profile' %}"><i class="fa-solid fa-arrow-left-long fa-2x text-dark"></i></a>
+
+<div class="row">
+
+
+<div class="col-md d-flex justify-content-center">
+
+
+<div class="segment ui black raised">
+
+  
+        <div class="ui segment padded purple">
+          <h5 class="my-titles text-center ">Create new blog post</h5>
+        </div>
+        
+
+
+        
+<form method="post" action="." enctype="multipart/form-data" class="ui form">
+    {% csrf_token %}
+    
+    <div class="field">
+     
+      {{form}}
+    </div>
+    <!--
+    {{form.non_field_errors}}
+
+    <div class="form-group">
+      
+    {{form.image.errors}}
+    {{form.image.label_tag}}
+    {{form.image}}
+</div>
+
+<div class="form-group">
+      
+    {{form.slug.errors}}
+    {{form.slug.label_tag}}
+    {{form.slug}}
+</div>
+
+<div class="form-group">
+      
+    {{form.title.errors}}
+    {{form.title.label_tag}}
+    {{form.title}}
+</div>
+
+-->
+<div class="ui segment">
+    <button type="submit" class="ui button inverted purple" style="display:block; width: 100%;">Create Blog Post</button>
+  </div>
+    </form>
+
+</div>
+</div></div>
+</div>
+</section>
+
+<div class="container overflow-hidden text-center" style="visibility:hidden;">
+    <div class="row gy-5">
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      </div>
+  </div>
+{% endblock %}

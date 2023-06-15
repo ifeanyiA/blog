@@ -1,0 +1,199 @@
+{% extends "starter.html" %}
+{% load static %}
+
+{% block style %}
+	    
+	    
+.flex{
+display:flex;
+justify-content:space-between;
+}
+
+
+
+	    
+	   
+{% endblock %}
+
+
+
+{% block title %}
+Dashboard | Profile
+{% endblock %}
+
+
+{% block content %}
+{% if messages %}
+
+{% for message in messages %}
+
+
+{% if message.tags == 'success' %}
+
+<script src="{% static 'js/jquery.js' %}"></script>  
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<p class="msg">{{message}}</p>
+<script>
+ $(document).ready(function(){
+ $(".target").text($(".msg").text());
+  $("#updatemessage").modal('show');
+ });
+</script>
+
+{% endif %}
+
+
+    
+{% endfor %}
+
+{% endif %}
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="updatemessage" tabindex="-1" aria-labelledby="updatemessageLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark site" id="updatemessageLabel">Perfect!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="text-center text-success mt-3">
+        <i class="far fa-check-circle fa-6x" style="color: #a5dc86;"></i>
+        </div>
+        <br>
+        <div class="mb-3 text-dark carousel-p target articles"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" style="width:65px;" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-2">
+<div class="row">
+  
+  <div class="col-12 col-md-10  mb-4 text-white">
+    <form action="" method="post">
+      {% csrf_token %}
+    {{form}}
+
+<button class="btn-primary" type="submit">Sort</button>
+    </form>
+    
+    </div>
+</div>
+
+  <div class="col-12 col-md-10 mx-auto">
+  
+<p class="text-white">Name: {{full_name|title}} <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNzkyIDE3OTIiIHhtbG5z
+	  PSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iIzcwYmYyYiIgZD0i
+	  TTE0MTIgNzM0cTAtMjgtMTgtNDZsLTkxLTkwcS0xOS0xOS00NS0xOXQtNDUgMTlsLTQwOCA0MDct
+	  MjI2LTIyNnEtMTktMTktNDUtMTl0LTQ1IDE5bC05MSA5MHEtMTggMTgtMTggNDYgMCAyNyAxOCA0
+	  NWwzNjIgMzYycTE5IDE5IDQ1IDE5IDI3IDAgNDYtMTlsNTQzLTU0M3ExOC0xOCAxOC00NXptMjUy
+	  IDE2MnEwIDIwOS0xMDMgMzg1LjV0LTI3OS41IDI3OS41LTM4NS41IDEwMy0zODUuNS0xMDMtMjc5
+	  LjUtMjc5LjUtMTAzLTM4NS41IDEwMy0zODUuNSAyNzkuNS0yNzkuNSAzODUuNS0xMDMgMzg1LjUg
+	  MTAzIDI3OS41IDI3OS41IDEwMyAzODUuNXoiLz4KPC9zdmc+Cg== " alt="My image" style="height:3vh;">  </p>
+	  
+	  </div>
+  <div class="col-12 col-md-10 mx-auto">
+  
+<p class="text-white">Status:{% if request.user.is_superuser  %} Admin {% elif request.user.is_staff %} Staff {% else %} User {% endif %} <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNzkyIDE3OTIiIHhtbG5z
+	  PSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iIzcwYmYyYiIgZD0i
+	  TTE0MTIgNzM0cTAtMjgtMTgtNDZsLTkxLTkwcS0xOS0xOS00NS0xOXQtNDUgMTlsLTQwOCA0MDct
+	  MjI2LTIyNnEtMTktMTktNDUtMTl0LTQ1IDE5bC05MSA5MHEtMTggMTgtMTggNDYgMCAyNyAxOCA0
+	  NWwzNjIgMzYycTE5IDE5IDQ1IDE5IDI3IDAgNDYtMTlsNTQzLTU0M3ExOC0xOCAxOC00NXptMjUy
+	  IDE2MnEwIDIwOS0xMDMgMzg1LjV0LTI3OS41IDI3OS41LTM4NS41IDEwMy0zODUuNS0xMDMtMjc5
+	  LjUtMjc5LjUtMTAzLTM4NS41IDEwMy0zODUuNSAyNzkuNS0yNzkuNSAzODUuNS0xMDMgMzg1LjUg
+	  MTAzIDI3OS41IDI3OS41IDEwMyAzODUuNXoiLz4KPC9zdmc+Cg== " alt="My image" style="height:3vh;">  </p>
+	  
+	  </div>
+	 
+       
+   
+
+   
+
+
+
+       
+	  
+	  </div>
+
+    <div class="row">
+
+{% if request.user.is_authenticated %}
+<p class="text-white">user is is_authenticated</p>
+
+{% if request.user.is_staff or request.user.is_superuser %}
+{% if object_list %}
+{% for object in object_list %}
+ 
+     
+{% include 'blog/list-inline.html' with blog_post=object truncate=True detail=False %}
+
+
+
+{% endfor %}
+
+{% else %}
+<section>
+  <div class="container">
+    <h4 class="text-center articles text-white">No Blog post</h4>
+  </div>
+</section>
+{% endif %}
+
+
+{% else %}
+<p class="text-white">user is not staff or superuser</p>
+
+{% endif %}
+
+
+
+
+
+
+
+
+{% endif %}
+        
+        </div>
+    <div class="container overflow-hidden text-center" style="visibility:hidden;">
+  <div class="row gy-5">
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3">Custom column padding</div>
+    </div>
+    </div>
+</div>    
+<footer class="fixed-bottom pt-2  pb-2">
+<div class="container d-flex justify-content-center">
+
+  <ul class="text-white">
+
+  <li> <a href="{% url 'home' %}" class="ui button inverted green me-2" title="Home"><i class="warehouse icon"></i></a></li>
+  
+  <li><a href="{% url 'index' %}" class="ui button inverted blue me-2" title="blog posts"><i class="fa-sharp fa-solid fa-blog"></i></a></li>
+   {% if request.user.is_authenticated and request.user.is_staff %}
+   <li><a href="{% url 'blog_new' %}" class="ui button inverted teal me-2" title="Create blogpost"><i class="pencil alternate icon"></i></a></li>
+   {% endif %}
+  </ul>
+</div>
+</footer>
+{% endblock %}
+
+  
+  
+  
