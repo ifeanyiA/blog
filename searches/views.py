@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import SearchQuery
 from blog.models import BlogPost
 from account.models import AccountUser
+from searches.api.serializers import SearchQuerySerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 # Create your views here.
 
 
@@ -19,3 +22,10 @@ def search_view(request):
 		
 	return render(request,"searches/view.html",context)
 
+
+@api_view(['GET'])
+def search_view_api(request):
+	pass
+			
+		
+	

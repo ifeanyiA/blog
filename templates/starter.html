@@ -236,19 +236,24 @@ footer li a{
 
 
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
+       
       </ul>
+      <!--
       <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      -->
     </div>
   </div>
 </nav>
-
-
+<!-- input search + reset button -->
+<div class="container">
+<div class="input-group input-group-sm mb-3 mt-4">
+  <input type="text" onkeyup="searchFunction()" class="form-control" id="search" placeholder="search for...">
+  <a href="{% url 'home' %}" class="btn btn-dark"><i class="fas fa-sync-all"></i></a>
+</div>
+</div>
 {% block content %}
       
       
@@ -339,6 +344,21 @@ headers:{
 
 
 });
+</script>
+
+
+
+<script>
+
+  function searchFunction(){
+  let input,filter,blog_post;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  blog_post = document.getElementById("blog_post");
+console.log(blog_post);
+
+}
+
 </script>
 
 </body>
