@@ -31,11 +31,11 @@ contact_page
 
 urlpatterns = [
 	path('',home_page,name='home'),
+	path('accounts/', include('django.contrib.auth.urls')),
 	path('accounts/profile/',profile,name='profile'),
 	path('accounts/signup/',CreateUser.as_view(),name="createuser"),
 	path('accounts/login/',CustomLoginView.as_view(),name="login"),
-    path('accounts/', include('django.contrib.auth.urls')),
-   	path('blog-new/',blog_post_create_view,name="blog_new"),
+  	path('blog-new/',blog_post_create_view,name="blog_new"),
 	path('blog/',include("blog.urls")),
 	path('search/',search_view,name="search"),
 	path('about/',about_page),
