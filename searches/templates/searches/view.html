@@ -1,5 +1,11 @@
 {% extends "starter.html" %}
 
+{% if query %}
+
+
+
+{% endif %}
+
 {% block content %}
 <div class="row">
 <div class="col-12 col-8 mx-auto">
@@ -13,33 +19,42 @@
     </div>
     </div>
 </div>
+
+<div class="container">
 {% if query %}
 
-<p class="lead text-white fs-4">You searched for {{query}}</p>
+<p class="lead text-white fs-4">You searched for <strong class="text-primary">{{query}}</strong></p>
 
-{% else %}
 
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-md">
-          <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}">
-            <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
     
 {% endif %}
-
+</div>
 
 {% for  blog_item in blog_list %}
 
 {% include 'blog/list-inline.html' with blog_post=blog_item truncate=True detail=False %} 
+
 {% empty %}
-<p class="card-text">{{query|capfirst}} not found </p>
+
+
+<div class="grid text-center">
+  <div class="g-col-4"></div>
+  <div class="container overflow-hidden text-center" style="visibility:hidden;">
+    <div class="row gy-5">
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      </div>
+  </div>
+  <div class="g-col-4">
+    <p class="text-white"> {{query}} not found</p>
+  </div>
+  <div class="g-col-4"></div>
+</div>
 
 {% endfor %}
 

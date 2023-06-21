@@ -8,6 +8,7 @@ from django.utils import timezone
 
 
 
+
 def home_page(request):
 	now=timezone.now()
 	title ="Screecher"
@@ -17,12 +18,11 @@ def home_page(request):
 	qs=paginator.get_page(page)
 	
 
+
 	
 	context={"title":title,"blog_list":qs,"now":now}
 	return render(request,"home_page.html",context)
-	
-	
-	
+
 
 def about_page(request):
 	title="about us"

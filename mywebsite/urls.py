@@ -20,9 +20,8 @@ from django.contrib.auth import views as auth_views
 
 
 from blog.views import blog_post_create_view,profile
-from searches.views import search_view,search_view_api
+from searches.views import search_view
 from account.views import CreateUser,CustomLoginView
-
 
 from .views import (
 home_page,
@@ -33,18 +32,12 @@ contact_page
 urlpatterns = [
 	path('',home_page,name='home'),
 	path('accounts/profile/',profile,name='profile'),
-	
-	
 	path('accounts/signup/',CreateUser.as_view(),name="createuser"),
 	path('accounts/login/',CustomLoginView.as_view(),name="login"),
     path('accounts/', include('django.contrib.auth.urls')),
-   
-	path('blog-new/',blog_post_create_view,name="blog_new"),
+   	path('blog-new/',blog_post_create_view,name="blog_new"),
 	path('blog/',include("blog.urls")),
-
 	path('search/',search_view,name="search"),
-	path('search_api/',search_view_api,name="search_api"),
-
 	path('about/',about_page),
 	path('contact/',contact_page),
     path('admin/', admin.site.urls),

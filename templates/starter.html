@@ -248,12 +248,25 @@ footer li a{
   </div>
 </nav>
 <!-- input search + reset button -->
+{% block search %}
 <div class="container">
-<div class="input-group input-group-sm mb-3 mt-4">
-  <input type="text" onkeyup="searchFunction()" class="form-control" id="search" placeholder="search for...">
-  <a href="{% url 'home' %}" class="btn btn-dark"><i class="fas fa-sync-all"></i></a>
+<div class="row">
+  <div class="col-md-8"></div>
+  <div class="col-md-4">
+<form action="{% url 'search' %}">
+    <div class="input-group input-group-sm mb-3 mt-4">
+
+      <input type="text" class="form-control" id="search" placeholder="search for..." name="q">
+      <a href="{% url 'search' %}" class="btn btn-dark"><i class="fas fa-sync-all" type="submit"></i></a>
+    
+    
+      
+    </div>
+  </form>
+  </div>
 </div>
 </div>
+{% endblock %}
 {% block content %}
       
       
@@ -283,19 +296,9 @@ $(document).ready(function(){
       
       $("#like_display").text(parseInt(data));
       
-
-      
-  
-      
-
-    })
-
-   
-    
-   
+   })
   }
   
-
 $("#like_button").click(function(e){
 e.preventDefault();
 
@@ -334,31 +337,13 @@ headers:{
 
 });
 
-
-
-
-
-
-
-
-
-
 });
 </script>
-
-
-
 <script>
-
-  function searchFunction(){
-  let input,filter,blog_post;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase();
-  blog_post = document.getElementById("blog_post");
-console.log(blog_post);
-
-}
-
+  const search = document.querySelector("#search");
+  search.addEventListener("keyup",(e)=>{
+    
+  });
 </script>
 
 </body>
