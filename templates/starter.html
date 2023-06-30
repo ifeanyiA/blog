@@ -43,7 +43,12 @@ footer li a{
   text-decoration: none;
 }
 
-
+.side-label{
+  width:50px;
+}
+.btn-close, .btn-send{
+  width:65px;
+}
 
 
 .my-titles{
@@ -271,6 +276,9 @@ footer li a{
       
       
 {% endblock %}
+{% include "modals/frontend.html" %}
+{% include "modals/fullstack.html" %}
+{% include "modals/backend.html" %}
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
