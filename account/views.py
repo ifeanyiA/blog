@@ -53,6 +53,7 @@ class CustomLoginView(LoginView):
 	form_class=LoginForm
 #	extra_context={'my_path'}
 	#success_url=reverse_lazy('home')
+	#next_page = ''
 	template_name="registration/login.html"
 	
 	

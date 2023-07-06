@@ -1,10 +1,33 @@
-{% extends "modals/baseModal.html" %}
-<!--backend modal ID-->
-{% block modal-id %}
-id="backendModal"
-{% endblock modal-id %}
+ {% extends "modals/baseModal.html" %}
 
-<!--backend modal title-->
-{% block modal-title %}
+<!--Modal ID-->
+{%  block modal-id %}
+id="backendModal"
+{%  endblock modal-id %}
+
+<!--Modal TITLE-->
+
+{%  block modal-title %}
 <i class="fab fa-python fa-1x"></i>&nbsp;&nbsp; Backend opportunities
-{% endblock modal-title %}
+{%  endblock modal-title %}
+
+<!--Form Validation-->
+{% block validation %} onsubmit="return validateForm2()" {% endblock validation %}
+
+<!-- ========================INPUT ID ==========================-->
+<!--Name-->
+{% block id-name %}  id="name2"   {% endblock id-name %} 
+<!--Age-->
+{% block id-age %} id="age2"   {% endblock id-age %} 
+<!--Phone-->
+{% block id-email %} id="email2"      {% endblock id-email %} 
+<!--Email-->
+{% block id-phone %} id="phone2"   {% endblock id-phone %} 
+<!--Address-->
+{% block id-address %} id="address2"  {% endblock id-address %} 
+<!--Experience-->
+{% block id-experience %} id="experience2"  {% endblock id-experience %} 
+<!--Skills-->
+{% block id-skills %} id="skills2"  {% endblock id-skills %} 
+<!--File-->
+{% block id-file %}  id="file2"  {% endblock id-file %} 
