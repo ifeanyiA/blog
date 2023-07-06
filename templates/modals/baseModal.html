@@ -14,7 +14,7 @@
             <button class="side-label btn border-secondary bg-light">
               <i class="fas fa-user-alt"></i>
             </button>
-            <input type="text" class="form-control name" {% block id-name %} {% endblock id-name %}  name="name" placeholder="Full name">
+            <input type="text" maxlength="40" class="form-control name" {% block id-name %} {% endblock id-name %}  name="name" placeholder="Full name">
           </div>
            <!-- form input --- Your age -->
           <div class="input-group input-group-sm mb-2">
@@ -28,7 +28,7 @@
             <button class="side-label btn border-secondary bg-light">
               <i class="fas fa-envelope"></i>
             </button>
-            <input type="text" class="form-control email" {% block id-email %} {% endblock id-email %}  name="email" placeholder="Your email">
+            <input type="text" maxlength="40" class="form-control email" {% block id-email %} {% endblock id-email %}  name="email" placeholder="Your email">
           </div>
            <!-- form input --- Your phone -->
           <div class="input-group input-group-sm mb-2">
@@ -42,15 +42,15 @@
             <button class="side-label btn border-secondary bg-light">
               <i class="fas fa-map-marker-alt"></i>
             </button>
-            <input type="text" class="form-control" {% block id-address %} {% endblock id-address %}  name="address" placeholder="Your address">
+            <input type="text" maxlength="60" class="form-control" {% block id-address %} {% endblock id-address %}  name="address" placeholder="Your address">
           </div>
            <!-- form input --- Your Experience -->
           <div class="mb-2 mt-3">
-            <textarea name="experience" {% block id-experience %} {% endblock id-experience %}  placeholder="Talk a little about your experience..." rows="3" class="form-control"></textarea>
+            <textarea name="experience" maxlength="500" {% block id-experience %} {% endblock id-experience %}  placeholder="Talk a little about your experience..." rows="3" class="form-control"></textarea>
           </div>
            <!-- form input --- Your Skills -->
            <div class="mb-2 mt-3">
-            <textarea name="skills" {% block id-skills %} {% endblock id-skills %}  placeholder="Talk a little about your skills..." rows="3" class="form-control"></textarea>
+            <textarea name="skills"  maxlength="500" {% block id-skills %} {% endblock id-skills %}  placeholder="Talk a little about your skills..." rows="3" class="form-control"></textarea>
           </div>
           <hr style="height: 2px;">
           <!-- form input --- Uploads-->
