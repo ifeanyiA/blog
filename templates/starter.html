@@ -406,5 +406,14 @@ headers:{
         loop:true,
     })
 </script>
+
+<!--Form modal clear function when closed or outside is clicked -->
+<script>
+  $("#frontendModal,#backendModal,#fullstackModal").on('hidden.bs.modal',function(){
+      $("#frontendModal form")[0].reset();
+      $("#backendModal form")[0].reset();
+      $("#fullstackModal form")[0].reset();
+  });
+</script>
 </body>
 </html>

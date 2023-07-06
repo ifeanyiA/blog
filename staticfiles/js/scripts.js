@@ -94,17 +94,7 @@ $(document).ready(function(){
        }
    }
    
-   // 3) Maximum size of  allowed uploadable file
-   $(document).ready(function(){
    
-       $("#file,#file2,#file3").bind('change', function(){
-       var a = (this.files[0].size);
-       if(a > 2 * 1048576){
-           swal("Attention !", "Maximum allowed size is 2mb.","info");
-           this.value = "";
-       }
-       })
-   });
    
    
    // b) Backend form
@@ -269,3 +259,37 @@ $(document).ready(function(){
        
    }
    
+   
+   
+   // 3) Maximum size of  allowed uploadable file
+   $(document).ready(function(){
+   
+       $("#file,#file2,#file3").bind('change', function(){
+       var a = (this.files[0].size);
+       if(a > 2 * 1048576){
+           swal("Attention !", "Maximum allowed size is 2mb.","info");
+           this.value = "";
+       }
+       });
+   });
+   
+   
+   // 4) Allow only letters in NAME
+   
+   $(".name").keyup(function(){
+   
+       if(!/^[a-zA-Z _]*$/.test(this.value)){
+           this.value = this.value.split(/[^a-zA-Z _]/).join('');
+       }
+   });
+
+   // 5) function that allows only two white space in the NAME input
+
+   $(".name").on("keydown",function(){
+
+    var $this = $(this);
+    $(this).val($this.val().replace(/(\s{2,}) | [^a-zA-Z0-9_']/g,   ' ').replace(/^\s*/, ''));
+
+
+
+   });
