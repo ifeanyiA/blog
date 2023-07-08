@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+"""
 
 
 DATABASES = {
@@ -102,7 +103,6 @@ DATABASES = {
 
     }
 }
-"""
 
 
 # Password validation
@@ -145,7 +145,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 AUTH_USER_MODEL='account.AccountUser'
 LOGIN_URL='login'
-#LOGIN_REDIRECT_URL='home'
+LOGIN_REDIRECT_URL='home'
 LOGOUT_URL='logout'
 
 
