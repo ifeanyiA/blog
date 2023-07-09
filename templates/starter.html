@@ -180,6 +180,53 @@ footer li a{
  
 }
 
+/*======================================
+# CUSTOM SWEETALERT
+====================================*/
+/* All text centered*/
+.swal-text{
+    text-align: center;
+}
+
+/* Icon settings */
+.swal-icon--success::before,
+.swal-icon--success::after,
+.swal-icon--success__hide-corners{
+    background:none !important;
+}
+
+.swal-icon--success{
+    /* color of ring */
+    border-color: orange;
+}
+
+.swal-icon--success__line{
+    /* Animation */
+    background-color: orange;
+}
+
+.swal-button{
+    padding:7px 19px;
+    border-radius: 5px;
+    background-color: #111;
+    font-size: 12px;
+    border: 1px solid #111;
+
+}
+
+.swal-button:focus{
+    /* Remove the silver border around the native button */
+    box-shadow: none;
+}
+
+.swal-button:not([disabled]):hover{
+    /* Hover effect */
+    background: transparent;
+    color:#111;
+    border: 1px solid #111;
+}
+
+
 
 
 @media screen and (min-width:990px) {
@@ -304,9 +351,28 @@ footer li a{
       
       
 {% endblock %}
-{% include "modals/frontend.html" %}
-{% include "modals/fullstack.html" %}
-{% include "modals/backend.html" %}
+{% include "human_resource/modals/frontend.html" %}
+{% include "human_resource/modals/fullstack.html" %}
+{% include "human_resource/modals/backend.html" %}
+
+
+
+<!--Message from backend (success )-->
+{% for message in messages %}
+{% if message.tags == 'success' %}
+<!--Sweetalert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    var m = "{{ message }}";
+    swal("Perfect !",m,"success");
+</script>
+
+
+{% endif %}
+
+
+{% endfor %}
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"

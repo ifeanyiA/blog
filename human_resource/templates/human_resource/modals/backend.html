@@ -1,4 +1,4 @@
- {% extends "modals/baseModal.html" %}
+ {% extends "human_resource/modals/baseModal.html" %}
 
 <!--Modal ID-->
 {%  block modal-id %}
@@ -13,6 +13,10 @@ id="backendModal"
 
 <!--Form Validation-->
 {% block validation %} onsubmit="return validateForm2()" {% endblock validation %}
+
+
+<!--Form action-->
+{% block action %} action="{% url 'email_backend' %}" {% endblock action %}
 
 <!-- ========================INPUT ID ==========================-->
 <!--Name-->

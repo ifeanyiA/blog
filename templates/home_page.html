@@ -15,30 +15,7 @@
     </div>
     </div>
 </div>
-{% if messages %}
 
-{% for message in messages %}
-
-
-{% if message.tags == 'success' %}
-
-<script src="{% static 'js/jquery.js' %}"></script>  
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<p class="msg"  style="visibility:hidden;">{{message}}</p>
-<script>
- $(document).ready(function(){
- $(".target").text($(".msg").text());
-  $("#updatemessage").modal('show');
- });
-</script>
-
-{% endif %}
-
-
-    
-{% endfor %}
-
-{% endif %}
 
 
 <!-- Button trigger modal -->

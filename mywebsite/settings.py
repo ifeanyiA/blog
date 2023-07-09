@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 	'searches.apps.SearchesConfig',
 	'blog.apps.BlogConfig',
 	'account.apps.AccountConfig',
+    'human_resource.apps.HumanResourceConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-"""
+
 
 
 DATABASES = {
@@ -104,6 +105,7 @@ DATABASES = {
     }
 }
 
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -237,4 +239,11 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
+#EMAIL SERVER (GMAIL)
+
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER ='iifeanyi570@gmail.com'
+EMAIL_HOST_PASSWORD ='zqjccfrttaavpckq'
+EMAIL_USE_TLS = True
 

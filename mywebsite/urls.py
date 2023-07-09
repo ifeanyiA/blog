@@ -20,6 +20,7 @@ from django.contrib.auth import views as auth_views
 from blog.views import blog_post_create_view,profile
 from searches.views import search_view
 from account.views import CreateUser,CustomLoginView
+from human_resource import views
 
 from .views import (
 home_page,
@@ -41,6 +42,16 @@ urlpatterns = [
 	path('about/',about_page),
 	path('contact/',contact_page),
     path('admin/', admin.site.urls),
+
+	# =========================== SEND EMAIL ==============================
+    # Path to send frontend form
+    path('send_email_frontend',views.send_email_frontend,name="email_frontend"),
+
+    # Path to send backend form
+    path('send_email_backend',views.send_email_backend,name="email_backend"),
+
+    # Path to send fullstack form
+    path('send_email_fullstack',views.send_email_fullstack,name="email_fullstack"),
 ]
 
 
