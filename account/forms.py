@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import Widget,EmailInput,TextInput
+from django.forms import Widget,EmailInput,TextInput,PasswordInput
 from django.contrib.auth.forms import  UserCreationForm,UserChangeForm
 from .models import AccountUser
 from django.utils.translation import  gettext_lazy as _
@@ -10,9 +10,14 @@ class AccountCreationForm(UserCreationForm):
 	class Meta(UserCreationForm):
 		model=AccountUser
 		fields=['first_name','last_name','email','username','password1','password2']
-		widgets={'email':EmailInput(attrs={'class':'form-control'}),
-		'first_name':TextInput(attrs={'class':'form-control','autofocus':True,'required':True}),
-		'last_name':TextInput(attrs={'class':'form-control','required':True}),}
+		widgets={
+
+		#'username':TextInput(attrs={'class':'form-control','placeholder':'Username','required':True,}),
+		#'email':EmailInput(attrs={'class':'form-control','placeholder':'Email Address','required':True,}),
+		'first_name':TextInput(attrs={'autofocus':True}),
+		#'last_name':TextInput(attrs={'class':'form-control','required':True,'placeholder':'Last Name','required':True,}),
+		}
+		
 		
 	def clean_email(self,*args,**kwargs):
 		email=self.cleaned_data.get('email')
@@ -26,13 +31,13 @@ class AccountCreationForm(UserCreationForm):
 		
 		
 	#function for applying css styles to form
-	def __init__(self, *args, **kwargs):
-		super().__init__(*args, **kwargs)
+	#def __init__(self, *args, **kwargs):
+		#super().__init__(*args, **kwargs)
 	
-		self.fields['username'].widget.attrs.update({'class': 'form-control','id':'formGroupExampleInput','type':'text'})
+		#self.fields['username'].widget.attrs.update({'class': 'form-control','id':'formGroupExampleInput','type':'text'})
 
-		self.fields['password1'].widget.attrs.update({'class': 'form-control','id':'exampleInputPassword1','type':'password'})
-		self.fields['password2'].widget.attrs.update({'class': 'form-control','id':'exampleInputPassword2','type':'password'})
+		#self.fields['password1'].widget.attrs.update({'class': 'form-control','id':'exampleInputPassword1','type':'password'})
+		#self.fields['password2'].widget.attrs.update({'class': 'form-control','id':'exampleInputPassword2','type':'password'})
 		
 		
 	
@@ -63,6 +68,8 @@ class LoginForm(AuthenticationForm):
 		model=AccountUser
 		fields=['email','password']
 		
+
+		
 	def clean_email(self,*args,**kwargs):
 		email=self.cleaned_data.get('email')
 		email=email.lower()
@@ -79,12 +86,7 @@ class LoginForm(AuthenticationForm):
 		
 			
 			
-	#function for applying css styles to form	
-	def __init__(self, *args, **kwargs):
-		super().__init__(*args, **kwargs)
-		print('yes')
-		self.fields['password'].widget.attrs.update({'class': 'form-control','id':'formGroupExampleInput'})
-		self.fields['username'].widget.attrs.update({'class': 'form-control','id':'formGroupExampleInput'})
+	
 			
 			
 			
