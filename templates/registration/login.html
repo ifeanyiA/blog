@@ -136,6 +136,28 @@
         });
     });
   </script>
+
+<script>
+  $(document).ready(function(){
+    
+   
+ // 2) Prevent starting with space in all inputs (including textarea)
+
+ $("input[type='text'], input[type='email'], input[type='password']").on("keypress",function(e){
+        if(e.which === 32 && !this.value.length){
+             e.preventDefault();
+            }
+   });
+   
+   $("input[type='text'], input[type='email']").keyup(function(){
+        this.value = this.value.toLowerCase();
+
+    });
+
+  });
+
+   </script>
+
 </body>
 
 </html>

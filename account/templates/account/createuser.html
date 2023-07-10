@@ -62,7 +62,7 @@
         Sign Up
       </div>
     </h2>
-    <form class="ui large form" method="post">
+    <form class="ui large form" method="post" id="form">
       {% csrf_token %}
       
       <div class="ui stacked segment">
@@ -216,6 +216,34 @@
         });
     });
   </script>
+  <script>
+  $(document).ready(function(){
+    
+     // 1) prevents numbers in name 
+  $("input[type='text']").keyup(function(){
+   
+  if(!/^[a-zA-Z _]*$/.test(this.value)){
+  this.value = this.value.split(/[^a-zA-Z _]/).join('');
+  }
+
+});
+
+ // 2) Prevent starting with space in all inputs (including textarea)
+
+ $("input[type='text'], input[type='email'], input[type='password']").on("keypress",function(e){
+        if(e.which === 32 && !this.value.length){
+             e.preventDefault();
+            }
+   });
+
+   $("input[type='text'], input[type='email']").keyup(function(){
+        this.value = this.value.toLowerCase();
+
+    });
+
+  });
+
+   </script>
 </body>
 
 </html>
