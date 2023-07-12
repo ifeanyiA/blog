@@ -362,15 +362,19 @@ footer li a{
 
 <!--Message from backend (success )-->
 {% for message in messages %}
-{% if message.tags == 'success' %}
 <!--Sweetalert-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+{% if message.tags == 'success' %}
 <script>
     var m = "{{ message }}";
     swal("Perfect !",m,"success");
 </script>
+{% elif message.tags == 'error' %}
 
+<script>
+    var m = "{{ message }}";
+    swal("Sorry !",m,"info");
+</script>
 
 {% endif %}
 

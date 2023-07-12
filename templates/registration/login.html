@@ -62,55 +62,23 @@
   
 </head>
 <body>
-  <nav class="navbar  navbar-expand-lg" data-bs-theme="dark" style="background-color:#13111C;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">Screecher</a>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Job opportunities</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Account
+  <header>
+    <nav class="navbar bavbar-expand-lg navbar-dark bg-dark">
+        <div class="col-sm">
+            <a class="navbar-brand flex-grow-1" id="navbar-content">
+               
+               <i class="text-warning fas fa-chart-pie"></i>&nbsp;&nbsp; Screecher
+               
             </a>
-            
-            <ul class="dropdown-menu">
-            {% if request.user.is_authenticated %}
-              <li><a class="dropdown-item" href="{% url 'my_profile' %}"><i class="fa-solid fa-user-large"></i> Profile</a></li>
-              <li><a class="dropdown-item" href="{% url 'logout' %}?next={{request.path}}"><i class="sign out alternate icon"></i> Logout</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-              {% else %}
-              <li><a class="dropdown-item" href="{% url 'login' %}?next={{request.path}}"><i class="sign in alternate icon"></i> Login</a></li>
-              <li><a class="dropdown-item" href="{% url 'createuser' %}"><i class="fa-solid fa-user-plus"></i> Signup</a></li>
-  
-              {% endif %}
-            </ul>
-            
-  
-  
-          </li>
-         
-        </ul>
-        <!--
-        <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        -->
-      </div>
-    </div>
-  </nav>
+        </div>
+         <!-- Link to navigate between the pages -->
+        {% block link %}
+<a href="{% url 'home' %}" style="margin-right:25px; font-size: 25px;" title="Go back">
+<i class="text-warning fas fa-angle-double-left"></i>
+</a>
+        {% endblock link %}
+    </nav>
+</header>
   
 
 <div class="ui middle aligned center aligned grid">
