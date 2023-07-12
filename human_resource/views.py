@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect #Redirect the page after the submit
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template import loader
+from human_resource.models import Registered_email
 
 # Create your views here.
 # =============================== RESUMES ========================= 
