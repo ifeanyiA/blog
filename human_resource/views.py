@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,reverse
 
 from django.http import HttpResponseRedirect #Redirect the page after the submit 
 from django.contrib import messages
@@ -19,7 +19,7 @@ def send_email_frontend(request):
         email = request.POST['email']
         if Registered_email.objects.filter(email=email).exists():
             messages.error(request,"We already have your resume in our DB")
-            return HttpResponseRedirect(reverse("opportunities"))
+            return HttpResponseRedirect(reverse("home"))
         
         else:
             name = request.POST.get('name')
@@ -72,7 +72,7 @@ def send_email_backend(request):
         email = request.POST['email']
         if Registered_email.objects.filter(email=email).exists():
             messages.error(request,"We already have your resume in our DB")
-            return HttpResponseRedirect(reverse("opportunities"))
+            return HttpResponseRedirect(reverse("home"))
         
         else:
             name = request.POST.get('name')
@@ -125,7 +125,7 @@ def send_email_fullstack(request):
         email = request.POST['email']
         if Registered_email.objects.filter(email=email).exists():
             messages.error(request,"We already have your resume in our DB")
-            return HttpResponseRedirect(reverse("opportunities"))
+            return HttpResponseRedirect(reverse("home"))
         
         else:
             name = request.POST.get('name')
