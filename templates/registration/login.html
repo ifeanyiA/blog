@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,13 @@
 
   <!-- Semantic ui  styles -->
   <title>Screecher Login </title>
+  <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+  <!--Fontawesome cdn-->
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <!--Semantic ui cdn-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/segment.min.css" integrity="sha512-gB76JkasK0JAoGNuCBlOkok1MvhWe+VlcMQev9kU1qdkHaniPRHCOLEX6I8e1RATv/Y8uEhkDENL/ct2446l0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/divider.min.css" integrity="sha512-oVjlQ44wbePOJ4mK1reaPNn45WUnBnieWk5VgVCC15MnZXhu8/F/LkLlhHmwMYJs+B/UK+PyuGlFQPYe02StSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/button.min.css" integrity="sha512-+1Zl+cDrkWiaN4aCOs9XZ12Jm4Lg3OztufLITILSxr3mo5QM3+WgLH6+s+ytIWoWWQcdNlMGn1JHf75TzHvPHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,6 +34,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/menu.min.css" integrity="sha512-vzV6GDUGaQ3ern46f/02MP4pQhI5Fs4z4dN+0pSNiD4zuPE6Aaxzj9o8ZPTSTIQOBEI3H8wO1V8qV1bQbZcGzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/modal.min.css" integrity="sha512-O+9HCSTa58q6mrPxDvnNqBc7sPkqC7ByndUgWVMa65B5Y0jRztCrdiIZAEmAee/0+oYpyjNQwj0d4qIaLbNJuQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/icon.min.css" integrity="sha512-rTyypI20S663Wq9zrzMSOP1MNPHaYX7+ug5OZ/DTqCDLwRdErCo2W30Hdme3aUzJSvAUap3SmBk0r5j0vRxyGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  
 
  
 
@@ -53,6 +62,56 @@
   
 </head>
 <body>
+  <nav class="navbar  navbar-expand-lg" data-bs-theme="dark" style="background-color:#13111C;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Screecher</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Job opportunities</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            
+            <ul class="dropdown-menu">
+            {% if request.user.is_authenticated %}
+              <li><a class="dropdown-item" href="{% url 'my_profile' %}"><i class="fa-solid fa-user-large"></i> Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}?next={{request.path}}"><i class="sign out alternate icon"></i> Logout</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              {% else %}
+              <li><a class="dropdown-item" href="{% url 'login' %}?next={{request.path}}"><i class="sign in alternate icon"></i> Login</a></li>
+              <li><a class="dropdown-item" href="{% url 'createuser' %}"><i class="fa-solid fa-user-plus"></i> Signup</a></li>
+  
+              {% endif %}
+            </ul>
+            
+  
+  
+          </li>
+         
+        </ul>
+        <!--
+        <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        -->
+      </div>
+    </div>
+  </nav>
+  
 
 <div class="ui middle aligned center aligned grid">
   <div class="column">
@@ -102,6 +161,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/form.min.js" integrity="sha512-g9ZwtsAp0ebsmwlSjsMxeh5nlsmuLeH5eKVMeYnhqrOYWGPm0VAFyxc6l1qCeoHPyST/+tWh+S1yyF+TP6ObCA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/transition.min.js" integrity="sha512-TLqXvtXVij90GI++rNVSth9ilrDuyVc07ENJ6M7517r3DEaXjH/nS1klFegVw5Q0l+ZklRTFOhvAOn8avOVwYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script>
   $(document).ready(function() {
       $('.ui.form').form({

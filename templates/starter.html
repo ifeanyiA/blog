@@ -276,6 +276,7 @@ footer li a{
  </style>
   </head>
   <body>
+  {% block navbar %}
     <nav class="navbar  navbar-expand-lg" data-bs-theme="dark" style="background-color:#13111C;">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}">Screecher</a>
@@ -325,6 +326,8 @@ footer li a{
     </div>
   </div>
 </nav>
+
+{% endblock navbar %}
 <!-- input search + reset button -->
 {% block search %}
 <div class="container">

@@ -15,7 +15,7 @@ class AccountCreationForm(UserCreationForm):
 		#'username':TextInput(attrs={'class':'form-control','placeholder':'Username','required':True,}),
 		#'email':EmailInput(attrs={'class':'form-control','placeholder':'Email Address','required':True,}),
 		'first_name':TextInput(attrs={'autofocus':True}),
-		#'last_name':TextInput(attrs={'class':'form-control','required':True,'placeholder':'Last Name','required':True,}),
+		'last_name':TextInput(attrs={'class':'form-control'}),
 		}
 		
 		
