@@ -18,7 +18,17 @@ class AccountCreationForm(UserCreationForm):
 		'last_name':TextInput(attrs={'class':'form-control'}),
 		}
 		
-		
+	def __init__(self,*args,**kwargs):
+		super().__init__(*args,**kwargs)
+		self.fields['first_name'].widget.attrs.update({'placeholder':'First name','maxlength':30})	
+		self.fields['last_name'].widget.attrs.update({'placeholder':'Last name','maxlength':30})
+		self.fields['email'].widget.attrs.update({'placeholder':'Email Address','maxlength':100})
+		self.fields['username'].widget.attrs.update({'placeholder':'Username','maxlength':30})
+		self.fields['password1'].widget.attrs.update({'placeholder':'*********','maxlength':30})
+		self.fields['password2'].widget.attrs.update({'placeholder':'*********','maxlength':30})
+
+
+
 	def clean_email(self,*args,**kwargs):
 		email=self.cleaned_data.get('email')
 		email=email.lower()
@@ -30,7 +40,7 @@ class AccountCreationForm(UserCreationForm):
 		
 		
 		
-	#function for applying css styles to form
+	
 	#def __init__(self, *args, **kwargs):
 		#super().__init__(*args, **kwargs)
 	
@@ -67,6 +77,12 @@ class LoginForm(AuthenticationForm):
 	class Meta:
 		model=AccountUser
 		fields=['email','password']
+
+
+	def __init__(self,*args,**kwargs):
+		super().__init__(*args,**kwargs)
+		self.fields['username'].widget.attrs.update({'placeholder':'Email Address','maxlength':100})
+		self.fields['password'].widget.attrs.update({'placeholder':'**********','maxlength':30})
 		
 
 		
