@@ -35,7 +35,9 @@ urlpatterns = [
 	path('accounts/', include('django.contrib.auth.urls')),
 	path('accounts/user/',profile,name='my_profile'),
 	path('accounts/signup/',CreateUser.as_view(),name="createuser"),
-	
+    #opportunity urls
+    path('opportunity',views.index_opportunity,name="opportunity"),
+	#blog urls
   	path('blog-new/',blog_post_create_view,name="blog_new"),
 	path('blog/',include("blog.urls")),
 	path('search/',search_view,name="search"),
@@ -43,8 +45,10 @@ urlpatterns = [
 	path('contact/',contact_page),
     path('admin/', admin.site.urls),
 
+
 	# =========================== SEND EMAIL ==============================
     # Path to send frontend form
+    
     path('send_email_frontend',views.send_email_frontend,name="email_frontend"),
 
     # Path to send backend form

@@ -1,0 +1,236 @@
+/*======================================
+# START CONFIGURATION
+====================================*/
+
+
+html,body{
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+   
+    
+}
+
+/*======================================
+# FOOTER
+====================================*/
+
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+#footer,
+.push{
+    height: 50px;
+}
+
+/*======================================
+# OTHER PARTS
+====================================*/
+
+
+#navbar-content{
+    text-align: center;
+    color: #fff;
+    margin-left: 25px;
+}
+
+/*======================================
+# BLOCK TYPED EFFECT AND BUTTON JOB
+====================================*/
+.block-position{
+    width: 80%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+/*======================================
+# BTN JOB OPPORTUNITIES
+====================================*/
+#btn-job{
+
+    width: 270px;
+    font-size: 22px;
+    border-radius: 30px;
+    margin-bottom: -50px;
+    
+    }
+/*======================================
+# side labels-- left side of the inputs
+====================================*/
+.side-label{
+    width: 50px;
+}
+#back{
+    margin-right: 25px;
+    font-size: 25px;
+}
+/*======================================
+# BTN Cancel and send - button inside the modals
+====================================*/
+
+.btn-cancel, .btn-send{
+    width: 65px;
+}
+
+/*======================================
+# Preloader(spinner)
+====================================*/
+#preloader{
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #ffc107;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 32px);
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    animation: preloader 1.2s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes preloader{
+    to{
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/*======================================
+# CUSTOM SWEETALERT
+====================================*/
+/* All text centered*/
+.swal-text{
+    text-align: center;
+}
+
+/* Icon settings */
+.swal-icon--success::before,
+.swal-icon--success::after,
+.swal-icon--success__hide-corners{
+    background:none !important;
+}
+
+.swal-icon--success{
+    /* color of ring */
+    border-color: orange;
+}
+
+.swal-icon--success__line{
+    /* Animation */
+    background-color: orange;
+}
+
+.swal-button{
+    padding:7px 19px;
+    border-radius: 5px;
+    background-color: #111;
+    font-size: 12px;
+    border: 1px solid #111;
+
+}
+
+.swal-button:focus{
+    /* Remove the silver border around the native button */
+    box-shadow: none;
+}
+
+.swal-button:not([disabled]):hover{
+    /* Hover effect */
+    background: transparent;
+    color:#111;
+    border: 1px solid #111;
+}
+
+/*======================================
+# BACKEND SPINNER AJAX
+====================================*/
+
+
+
+#bg-spinner{
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: none;
+    background-color: rgba(1, 1, 1, 0.7);
+}
+
+#position-spinner{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#spinner{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 6px #d3d3d3 solid;
+    border-top: 6px #ffc107 solid;
+    animation: loading 1s infinite linear;
+
+}
+
+
+@keyframes loading {
+    to{
+        transform:rotate(360deg);
+    }
+    
+}
+
+
+
+/*======================================
+#  RESPONSIVE MODES
+====================================*/
+/* Resolution for Tablets */
+@media screen and (max-width: 1024px) {
+    #footer{
+        font-size: 15px;
+    }       
+}
+
+@media screen and (max-width:575px) {
+    #footer{
+        font-size: 12px;
+    }
+
+    body{
+        overflow-y: visible !important;
+    }
+
+    #navbar-content{
+        font-size: 16px;
+        margin-left: 20px;
+    }
+    .typed-effect{
+        font-size:24px;
+    }
+    #btn-job{
+        font-size: 15px;
+        width: 200px;
+    }
+    .jobs{
+        font-size: 13px;
+
+    }
+    #card-title{
+        font-size: 14px;
+    }
+
+    #back{
+        font-size: 20px;
+        margin-right: 20px;
+    }
+}

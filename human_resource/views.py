@@ -9,8 +9,18 @@ from human_resource.models import Registered_email
 # Create your views here.
 # =============================== RESUMES ========================= 
 
+ # Function to display the opportunity home page
+
+def index_opportunity(request):
+    template_name ="human_resource/index.html"
+    context = {"title":"Job Opportunities"}
+    return render(request,template_name,context)
+
  # Function to send frontend form
  # Function to send frontend form
+
+
+
 def send_email_frontend(request):
     if request.method == 'POST':
 
