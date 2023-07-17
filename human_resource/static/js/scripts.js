@@ -255,10 +255,90 @@ $(document).ready(function(){
        }
        
    }
-   // 3) Maximum size of  allowed uploadable file
+   // d) Graphic design form
+   
+   function validateEmail4(email4){
+       const regex =  /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+       return regex.test(email4);
+   }
+   function validateForm4(){
+       const name4 = document.getElementById("name4").value;
+       const age4 = document.getElementById("age4").value;
+       const phone4 = document.getElementById("phone4").value;
+       const email4 = document.getElementById("email4").value;
+       const address4 = document.getElementById("address4").value;
+       const experience4 = document.getElementById("experience4").value;
+       const skills4 = document.getElementById("skills4").value;
+       const file4 = document.getElementById("file4").value;
+   
+       if(name4 == ""){
+           swal("Opsss !","Name field cannot be empty.","error");
+           return false;
+       }
+   
+       else if(name4 == name4.toUpperCase()){
+           document.getElementById("name4").value=" ";
+           swal("Opsss !","Name field cannot be UPPERCASE.","info");
+           return false;
+       }
+   
+       else if(name4.split(' ').length < 2){
+           
+           swal("Opsss !","Your fullname is REQUIRED","info");
+           return false;
+       }
+   
+       else if(age4 == ""){
+           swal("Opsss !","Age field cannot be empty.","error");
+           return false;
+       }
+   
+       else if((age4 < 18) || (age4 > 50)){
+           document.getElementById('age4').value='';
+           swal("Opsss !","Age only between 18 and 50 years old","info");
+           return false;
+       }
+   
+       else if(email4 == ""){
+           swal("Opsss !","Email field cannot be empty.","error");
+           return false;
+       }
+   
+       else if(!(validateEmail4(email4))){
+           document.getElementById('email4').value='';
+           swal("Opsss !","Put a valid email address.","error");
+           return false;
+       }
+   
+       else if(phone4 == ""){
+           swal("Opsss !","Phone field cannot be empty.","error");
+           return false;
+       }
+   
+       else if(experience4 == ""){
+           swal("Opsss !","Experience field cannot be empty.","error");
+           return false;
+       }
+       
+       else if(skills4 == ""){
+           swal("Opsss !","Skills field cannot be empty.","error");
+           return false;
+       }
+   
+       else if(file4 == ""){
+           swal("Opsss !","File field cannot be empty.","error");
+           return false;
+       }
+   
+       else{
+           return true;
+       }
+       
+   }
+   // 4) Maximum size of  allowed uploadable file
    $(document).ready(function(){
    
-       $("#file,#file2,#file3").bind('change', function(){
+       $("#file,#file2,#file3,#file4").bind('change', function(){
        var a = (this.files[0].size);
        if(a > 2 * 1048576){
            swal("Attention !", "Maximum allowed size is 2mb.","info");
@@ -268,7 +348,7 @@ $(document).ready(function(){
    });
    
    
-   // 4) Allow only letters in NAME
+   // 3) Allow only letters in NAME
    
    $(".name").keyup(function(){
    

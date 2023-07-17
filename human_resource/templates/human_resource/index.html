@@ -157,7 +157,7 @@
 <!-- fourth Job opportunities-->
 <div class="col-xl-3 mb-4 col-sm-6 p-1">
 <div class="card" style="background-color: transparent;">
-  <button class="btn btn-outline-warning btn-lg jobs" >
+  <button class="btn btn-outline-warning btn-lg jobs" data-bs-toggle="modal" data-bs-target="#graphicDesignModal">
     <i class="fa-solid fa-pen-nib fa-5x"></i>
     <br><br>Graphic Design
 </button>
@@ -217,6 +217,7 @@
 {% include "human_resource/modals/frontend.html" %}
 {% include "human_resource/modals/fullstack.html" %}
 {% include "human_resource/modals/backend.html" %}
+{% include "human_resource/modals/graphicDesign.html" %}
 
 
 </div>
@@ -256,10 +257,11 @@
 </script>
 
 <script>
-    $("#frontendModal,#backendModal,#fullstackModal").on('hidden.bs.modal',function(){
+    $("#frontendModal,#backendModal,#fullstackModal,#graphicDesignModal").on('hidden.bs.modal',function(){
         $("#frontendModal form")[0].reset();
         $("#backendModal form")[0].reset();
         $("#fullstackModal form")[0].reset();
+        $("#graphicDesignModal form")[0].reset();
     });
   </script>
 </body>
