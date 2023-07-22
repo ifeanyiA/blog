@@ -15,10 +15,48 @@
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
     <title>{{title}}</title>
+<style>
+
+</style>
+
 </head>
 <body>
 <div class="wrapper">
     <style>
+
+#bg-spinner{
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display:none;
+    background-color: rgba(1, 1, 1, 0.7);
+}
+
+#position-spinner{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#spinner{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 6px #d3d3d3 solid;
+    border-top: 6px #ffc107 solid;
+    animation: loading 1s infinite linear;
+
+}
+
+@keyframes loading {
+    to{
+        transform:rotate(360deg);
+    }
+    
+}
          body
         {
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)),  url("/static/img/frontend.jpg");
@@ -27,9 +65,36 @@
             background-attachment: fixed;
             background-size: cover;
         }
+
+
+/*======================================
+# Preloader(spinner)
+====================================*/
+#preloader{
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #ffc107;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 32px);
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    animation: preloader 1.2s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes preloader{
+    to{
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
     </style>
 
 {% if truncate %}
+
 
 <div class="container mt-4">
 
@@ -95,6 +160,16 @@
 
 
 {% else %}
+
+<!--preloader-->
+<div id="preloader"></div>
+
+<!--backend spinner-->
+<div id="bg-spinner">
+  <div id="position-spinner">
+      <span id="spinner"></span>
+  </div>
+</div>
 <header>
     <nav class="navbar bavbar-expand-lg navbar-dark bg-dark">
         <div class="col-sm">
@@ -110,6 +185,9 @@
             </a>
     </nav>
 </header>
+
+
+
 
 
 
@@ -220,7 +298,6 @@
 {% include "human_resource/modals/graphicDesign.html" %}
 
 
-</div>
 
 
 
@@ -264,5 +341,73 @@
         $("#graphicDesignModal form")[0].reset();
     });
   </script>
+
+<!--Ajax Spinner-->
+<script>
+  jQuery(function($){
+      $(document).ajaxSend(function(){
+          $("#bg-spinner").fadeIn(500);
+      });
+
+      $(".btn-send").click(function(){
+          $.ajax({
+              type: 'GET',
+              success: function(data){
+                  var d = $.parseJSON(data);
+                  alert(d.Test)
+              }
+          }).done(function(){
+              setTimeout(function(){
+                  $("#bg-spinner").fadeOut(500);
+              },700);
+          });
+      });
+
+  });
+
+// Close modal(after clicking the send)
+
+  $(".btn-send").click(function(){
+//Frontend form validation
+      var name = $("#name").val();
+      var age = $("#age").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+      var address = $("#address").val();
+      var experience = $("#experience").val();
+      var skills = $("#skills").val();
+      var file = $("#file").val();
+      if( (name !="") && (age !="") && (email !="") && (phone !="") && (address !="") && (experience !="") && (skills !="") && (file !="")){
+                  $('.close-modal').modal('hide');
+      }
+     //Backend form validation
+      var name2 = $("#name2").val();
+      var age2 = $("#age2").val();
+      var email2 = $("#email2").val();
+      var phone2 = $("#phone2").val();
+      var address2 = $("#address2").val();
+      var experience2 = $("#experience2").val();
+      var skills2 = $("#skills2").val();
+      var file2 = $("#file2").val();
+      if( (name2 !="") && (age2 !="") && (email2 !="") && (phone2 !="") && (address2 !="") && (experience2 !="") && (skills2 !="") && (file2 !="")){
+                  $('.close-modal').modal('hide');
+      }
+
+      //fullstack form validation
+      var name3 = $("#name3").val();
+      var age3 = $("#age3").val();
+      var email3 = $("#email3").val();
+      var phone3 = $("#phone3").val();
+      var address3 = $("#address3").val();
+      var experience3 = $("#experience3").val();
+      var skills3 = $("#skills3").val();
+      var file3 = $("#file3").val();
+      if( (name3 !="") && (age3 !="") && (email3 !="") && (phone3 !="") && (address3 !="") && (experience3 !="") && (skills3 !="") && (file3 !="")){
+                  $('.close-modal').modal('hide');
+      }
+
+  });
+</script>
+
 </body>
 </html>

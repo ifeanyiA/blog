@@ -156,12 +156,18 @@ html,body{
 
 
 
+
+/*======================================
+
+
+
+
 #bg-spinner{
     top: 0;
     height: 100%;
     width: 100%;
     position: fixed;
-    display: none;
+    
     background-color: rgba(1, 1, 1, 0.7);
 }
 
@@ -171,6 +177,8 @@ html,body{
     justify-content: center;
     align-items: center;
 }
+
+
 #spinner{
     height: 60px;
     width: 60px;
@@ -181,7 +189,6 @@ html,body{
 
 }
 
-
 @keyframes loading {
     to{
         transform:rotate(360deg);
@@ -189,7 +196,7 @@ html,body{
     
 }
 
-
+====================================*/
 
 /*======================================
 #  RESPONSIVE MODES
